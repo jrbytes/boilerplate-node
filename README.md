@@ -1,14 +1,15 @@
-## Diferença entre Design x Arquitetura
+# Boilerplate Node
 
-Só tem uma forma de garantir que o código que foi escrito vai funcionar, é criando testes automatizados.
+Código inicial para criar uma aplicação NodeJS.
 
-Trouxe o SignUp com o Postgres.
-Refatorar para deixar o código limpo.
-Reproduzir interface http e testar essa api.
+## Comandos
 
-Refatorado
-API
-Testes validando cobertura de código
+Instalar pacotes
+```
+yarn
+```
 
-Criar + use case de getAccount para verificar se os dados foram cadastrados corretamente.
-
+Rodar testes
+```
+yarn test
+```
