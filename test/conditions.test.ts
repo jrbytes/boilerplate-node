@@ -1,4 +1,4 @@
-import { verificarMissao, verificarIdade, verificarPosto, verificarNave, verificarTripulante } from "../src/conditions"
+import { verificarIdade, verificarPosto, verificarNave, verificarMissao,verificarTripulante, verificarNumeroNave } from "../src/conditions"
 
 test('deve verificar se a pessoa pode ser um oficial da frota estelar', () => {
   expect(verificarIdade(18)).toMatch('Você é um oficial da Frota Estelar.')
@@ -15,12 +15,16 @@ test('deve verificar se a nave não é a enterprise', () => {
   expect(verificarNave('enterprise')).toMatch('Bem-vindo a bordo da Enterprise.')
 })
 
-test('deve verificar o tipo de exploração', () => {
-  expect(verificarMissao('exploração')).toMatch('Preparando-se para uma missão de exploração.')
-  expect(verificarMissao('diplomacia')).toMatch('Preparando-se para uma missão de diplomacia.')
+test.each(['exploração', 'diplomacia'])('deve verificar se é missão da frota estelar [or] %s', (missao: string) => {
+  expect(verificarMissao(missao)).toMatch('Preparando-se para uma missão da frota estelar.')
 })
 
-test('deve verificar se o tripulante está elegível para ser capitão', () => {
-  expect(verificarTripulante(35, 'comandante')).toMatch("Você é elegível para ser um capitão")
-  expect(verificarTripulante(34, 'comandante')).toMatch("Você não é elegível")
+test('deve verificar se o tripulante está elegível para ser capitão [and]', () => {
+  expect(verificarTripulante(35, 'comandante')).toMatch('Você é elegível para ser um capitão')
+  expect(verificarTripulante(34, 'comandante')).toMatch('Você não é elegível')
+})
+
+test('deve verificar se é a Enterprise 1701', () => {
+  expect(verificarNumeroNave(1701)).toMatch('Esta é a Enterprise 1701')
+  expect(verificarNumeroNave('1701')).toMatch('Esta é a Enterprise 1701')
 })

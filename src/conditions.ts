@@ -22,12 +22,9 @@ export function verificarNave(nave: string): string {
   }
 }
 
-export function verificarMissao(missao: 'diplomacia' | 'exploração'): any {
-  if (missao == 'diplomacia') {
-    return 'Preparando-se para uma missão de diplomacia.'
-  }
-  if (missao == 'exploração') {
-    return 'Preparando-se para uma missão de exploração.'
+export function verificarMissao(missao: string): any {
+  if (missao == 'exploração' || missao == 'diplomacia') {
+    return 'Preparando-se para uma missão da frota estelar.'
   }
 }
 
@@ -36,5 +33,11 @@ export function verificarTripulante(idade: number, posto: string): string {
     return 'Você é elegível para ser um capitão'
   } else {
     return 'Você não é elegível'
+  }
+}
+
+export function verificarNumeroNave(number: string | number) {
+  if (number == 1701) {
+    return 'Esta é a Enterprise 1701'
   }
 }
