@@ -1,4 +1,4 @@
-import { verificarIdade, verificarPosto, verificarNave, verificarMissao,verificarTripulante, verificarNumeroNave } from "../src/conditions"
+import { verificarIdade, verificarPosto, verificandoLacoDoWhileBusca, verificandoLacoDoWhile, verificarNave, verificandoLacoWhile, verificarMissao, verificandoLacoFor, verificarTripulante, verificarNumeroNave } from "../src/conditions"
 
 test('deve verificar se a pessoa pode ser um oficial da frota estelar', () => {
   expect(verificarIdade(18)).toMatch('Você é um oficial da Frota Estelar.')
@@ -27,4 +27,20 @@ test('deve verificar se o tripulante está elegível para ser capitão [and]', (
 test('deve verificar se é a Enterprise 1701', () => {
   expect(verificarNumeroNave(1701)).toMatch('Esta é a Enterprise 1701')
   expect(verificarNumeroNave('1701')).toMatch('Esta é a Enterprise 1701')
+})
+
+test('deve fazer output na quantidade mencionada [for]', () => {
+  expect(verificandoLacoFor(3)).toMatch('Enterprise 1\nEnterprise 2\nEnterprise 3')
+})
+
+test('deve fazer output na quantidade mencionada [while]', () => {
+  expect(verificandoLacoWhile(4)).toMatch('Enterprise 1\nEnterprise 2\nEnterprise 3\nEnterprise 4')
+})
+
+test('deve fazer output na quantidade [do while]', () => {
+  expect(verificandoLacoDoWhile(4)).toMatch('Enterprise 1\nEnterprise 2\nEnterprise 3\nEnterprise 4')
+})
+
+test('deve fazer busca dentro de um [do while]', () => {
+  expect(verificandoLacoDoWhileBusca(2)).toBe('Enterprise Started\nSettings\nEnterprise Finished\n')
 })

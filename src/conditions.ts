@@ -41,3 +41,45 @@ export function verificarNumeroNave(number: string | number) {
     return 'Esta é a Enterprise 1701'
   }
 }
+
+export function verificandoLacoFor(numero: number): string {
+  let output = ''
+  for(let iterador = 1; iterador <= numero; iterador++) {
+    output += `Enterprise ${iterador}\n`
+  }
+  return output
+}
+
+export function verificandoLacoWhile(numero: number): string {
+  let output = ''
+  let iterador = 1
+  while (iterador <= numero) {
+    output += `Enterprise ${iterador}\n`
+    iterador++
+  }
+  return output
+}
+
+export function verificandoLacoDoWhile(numero: number): string {
+  let output = ''
+  let iterador = 1
+  do {
+    output += `Enterprise ${iterador}\n`
+    iterador++
+  } while (iterador <= numero)
+  return output
+}
+
+export function verificandoLacoDoWhileBusca(numero: number): string {
+  let output = ''
+  let iterador = 1
+  do {
+    const started = 'Enterprise Started'
+    const finished = 'Enterprise Finished'
+    if (numero == 1) output = `${started}\nHome\n${finished}\n`
+    if (numero == 2) output = `${started}\nSettings\n${finished}\n`
+    if (numero == 3) output = `${started}\nExit\n${finished}\n`
+    iterador++
+  } while (iterador <= numero)
+  return output
+}
